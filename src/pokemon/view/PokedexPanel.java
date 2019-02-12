@@ -7,8 +7,24 @@ public class PokedexPanel extends JPanel
 {
 	private PokedexController appController;
 	private SpringLayout appLayout;
-	private JTextField textField;
-	private JLabel labels;
+	
+	private JButton changeButton;
+	private JComboBox pokedexDropdown;
+	
+	private JTextField numberField;
+	private JTextField nameField;
+	private JTextField evolveField;
+	private JTextField attackField;
+	private JTextField enchancementField;
+	private JTextField healthField;
+	
+	private JLabel numberLabel;
+	private JLabel nameLabel;
+	private JLabel evolveLabel;
+	private JLabel attackLabel;
+	private JLabel enchanceLabel;
+	private JLabel healthLabel;
+	private JLabel imageLabel;
 	
 	public PokedexPanel(PokedexController appController)
 	{
@@ -16,8 +32,20 @@ public class PokedexPanel extends JPanel
 		
 		this.appController = appController;
 		this.appLayout = new SpringLayout();
-		this.textField = new JTextField();
-		this.labels = new JLabel("I wanna be the very best");
+		
+		this.numberField = new JTextField();
+		this.evolveField = new JTextField();
+		this.attackField = new JTextField();
+		this.enchancementField = new JTextField();
+		this.healthField = new JTextField();
+		
+		this.numberLabel = new JLabel("");
+		this.nameLabel = new JLabel();
+		this.evolveLabel = new JLabel();
+		this.attackLabel = new JLabel();
+		this.enchanceLabel = new JLabel();
+		this.healthLabel = new JLabel();
+		this.imageLabel = new JLabel();
 		
 		setupLayout();
 		setupPanel();
@@ -31,8 +59,8 @@ public class PokedexPanel extends JPanel
 	
 	private void setupPanel()
 	{
-		this.add(labels);
-		this.add(textField);
+		this.add(numberLabel);
+		this.add(numberField);
 	}
 	
 	private void setupListeners()
