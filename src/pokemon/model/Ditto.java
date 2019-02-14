@@ -2,10 +2,19 @@ package pokemon.model;
 
 public class Ditto extends Pokemon implements NormalType
 {
+	public Ditto()
+	{
+		super(132, "Ditto");
+	}
+	public Ditto(String name)
+	{
+		super(132,name);
+	}
 	public Ditto(int number, String name)
 	{
 		super(number, name);
 	}
+	
 	
 	public void transform(Pokemon target)
 	{
