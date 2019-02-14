@@ -1,5 +1,7 @@
 package pokemon.model;
 
+import javax.swing.SpringLayout;
+
 public class Mimikyu extends Pokemon implements GhostType, FairyType
 {
 	public Mimikyu()
@@ -20,3 +22,11 @@ public class Mimikyu extends Pokemon implements GhostType, FairyType
 	
 	
 }
+
+
+
+
+
+
+
+

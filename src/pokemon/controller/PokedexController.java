@@ -57,6 +57,7 @@ public class PokedexController
 		}
 		return names;
 	}
+	
 	public boolean isInt(String test)
 	{
 		boolean passes = false;

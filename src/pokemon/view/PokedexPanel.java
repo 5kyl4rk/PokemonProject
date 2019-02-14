@@ -1,7 +1,11 @@
 package pokemon.view;
 
-import pokemon.controller.PokedexController;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
+
+import pokemon.controller.PokedexController;
 
 public class PokedexPanel extends JPanel
 {
@@ -37,65 +41,49 @@ public class PokedexPanel extends JPanel
 		
 		this.changeButton = new JButton("click her to change pokevalues");
 		this.pokedexDropdown = new JComboBox();
-		appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, 189, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, 205, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 24, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, pokedexDropdown, 119, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, pokedexDropdown, -37, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, pokedexDropdown, -581, SpringLayout.EAST, this);
 		
 		this.numberField = new JTextField("I wanna be the very best");
-		appLayout.putConstraint(SpringLayout.NORTH, numberField, 30, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, numberField, -249, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, numberField, 22, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, numberField, -29, SpringLayout.EAST, this);
 		this.nameField = new JTextField("like no one ever was");
-		appLayout.putConstraint(SpringLayout.WEST, numberField, 0, SpringLayout.WEST, nameField);
-		appLayout.putConstraint(SpringLayout.WEST, nameField, 494, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, nameField, -29, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.EAST, numberField, 0, SpringLayout.EAST, nameField);
+		appLayout.putConstraint(SpringLayout.WEST, numberField, 226, SpringLayout.EAST, nameField);
+		appLayout.putConstraint(SpringLayout.EAST, nameField, -432, SpringLayout.EAST, this);
 		this.evolveField = new JTextField("\"dun dun DUN\"");
-		appLayout.putConstraint(SpringLayout.NORTH, evolveField, 89, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, evolveField, 494, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, numberField, -22, SpringLayout.NORTH, evolveField);
+		appLayout.putConstraint(SpringLayout.NORTH, evolveField, 65, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, evolveField, -29, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, nameField, -6, SpringLayout.NORTH, evolveField);
 		this.attackField = new JTextField("to catch them is my real quest");
-		appLayout.putConstraint(SpringLayout.NORTH, attackField, 6, SpringLayout.SOUTH, evolveField);
-		appLayout.putConstraint(SpringLayout.WEST, attackField, 0, SpringLayout.WEST, numberField);
+		appLayout.putConstraint(SpringLayout.NORTH, attackField, 22, SpringLayout.SOUTH, evolveField);
 		appLayout.putConstraint(SpringLayout.EAST, attackField, -29, SpringLayout.EAST, this);
 		this.enhancementField = new JTextField("to train them is my cause");
-		appLayout.putConstraint(SpringLayout.NORTH, enhancementField, 6, SpringLayout.SOUTH, attackField);
-		appLayout.putConstraint(SpringLayout.WEST, enhancementField, 0, SpringLayout.WEST, numberField);
+		appLayout.putConstraint(SpringLayout.NORTH, enhancementField, 22, SpringLayout.SOUTH, attackField);
 		appLayout.putConstraint(SpringLayout.EAST, enhancementField, -29, SpringLayout.EAST, this);
+		
 		this.healthField = new JTextField("*POKEMON!*");
-		appLayout.putConstraint(SpringLayout.NORTH, healthField, 6, SpringLayout.SOUTH, enhancementField);
-		appLayout.putConstraint(SpringLayout.WEST, healthField, 0, SpringLayout.WEST, numberField);
+		appLayout.putConstraint(SpringLayout.NORTH, healthField, 22, SpringLayout.SOUTH, enhancementField);
 		appLayout.putConstraint(SpringLayout.SOUTH, healthField, -70, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, healthField, -29, SpringLayout.EAST, this);
 		
 		this.numberLabel = new JLabel("This Pokemon number is ");
-		appLayout.putConstraint(SpringLayout.NORTH, numberLabel, 0, SpringLayout.NORTH, numberField);
-		appLayout.putConstraint(SpringLayout.SOUTH, numberLabel, 0, SpringLayout.SOUTH, numberField);
-		appLayout.putConstraint(SpringLayout.EAST, numberLabel, -71, SpringLayout.WEST, numberField);
-		this.nameLabel = new JLabel("My name is ");
-		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, nameField);
-		appLayout.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.SOUTH, nameField);
-		appLayout.putConstraint(SpringLayout.EAST, nameLabel, -71, SpringLayout.WEST, nameField);
-		this.evolveLabel = new JLabel("This Pokemon can evolve ");
-		appLayout.putConstraint(SpringLayout.NORTH, evolveLabel, 0, SpringLayout.NORTH, evolveField);
-		appLayout.putConstraint(SpringLayout.SOUTH, evolveLabel, 0, SpringLayout.SOUTH, evolveField);
-		appLayout.putConstraint(SpringLayout.EAST, evolveLabel, -71, SpringLayout.WEST, evolveField);
-		this.attackLabel = new JLabel("This Pokemon attack level is ");
-		appLayout.putConstraint(SpringLayout.NORTH, attackLabel, 0, SpringLayout.NORTH, attackField);
-		appLayout.putConstraint(SpringLayout.SOUTH, attackLabel, 0, SpringLayout.SOUTH, attackField);
-		appLayout.putConstraint(SpringLayout.EAST, attackLabel, -71, SpringLayout.WEST, attackField);
-		this.enhanceLabel = new JLabel("This Pokemon enhancement level is ");
-		appLayout.putConstraint(SpringLayout.NORTH, enhanceLabel, 0, SpringLayout.NORTH, enhancementField);
-		appLayout.putConstraint(SpringLayout.SOUTH, enhanceLabel, 0, SpringLayout.SOUTH, enhancementField);
-		appLayout.putConstraint(SpringLayout.EAST, enhanceLabel, -71, SpringLayout.WEST, enhancementField);
-		this.healthLabel = new JLabel("This Pokemon health is ");
-		//insert code dump here
-		appLayout.putConstraint(SpringLayout.NORTH, healthLabel, 0, SpringLayout.NORTH, healthField);
-		appLayout.putConstraint(SpringLayout.SOUTH, healthLabel, 0, SpringLayout.SOUTH, healthField);
+		appLayout.putConstraint(SpringLayout.EAST, numberLabel, -10, SpringLayout.WEST, numberField);
 		
-		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/darkrai.png"));
+		
+		this.nameLabel = new JLabel("My name is ");
+		
+		this.evolveLabel = new JLabel("This Pokemon can evolve ");
+		this.attackLabel = new JLabel("This Pokemon attack level is ");
+		this.enhanceLabel = new JLabel("This Pokemon enhancement level is ");
+		this.healthLabel = new JLabel("This Pokemon health is ");
+		
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/pokeball.png"));
 		this.imageLabel = new JLabel("Pokemon goes here",pokemonIcon,JLabel.CENTER);
-		appLayout.putConstraint(SpringLayout.NORTH, imageLabel, 0, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, nameLabel, -6, SpringLayout.NORTH, imageLabel);
+		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 24, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, -6, SpringLayout.NORTH, pokedexDropdown);
 		setupLayout();
 		setupPanel();
 		setupDropdown();
@@ -104,8 +92,27 @@ public class PokedexPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		appLayout.putConstraint(SpringLayout.EAST, healthLabel, -71, SpringLayout.WEST, healthField);
-		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 24, SpringLayout.WEST, this);
+		
+		appLayout.putConstraint(SpringLayout.EAST, attackLabel, -10, SpringLayout.WEST, attackField);
+		appLayout.putConstraint(SpringLayout.NORTH, enhanceLabel, 0, SpringLayout.NORTH, enhancementField);
+		appLayout.putConstraint(SpringLayout.SOUTH, enhanceLabel, 0, SpringLayout.SOUTH, enhancementField);
+		appLayout.putConstraint(SpringLayout.EAST, enhanceLabel, -10, SpringLayout.WEST, enhancementField);
+		appLayout.putConstraint(SpringLayout.NORTH, numberLabel, 0, SpringLayout.NORTH, numberField);
+		appLayout.putConstraint(SpringLayout.SOUTH, numberLabel, 0, SpringLayout.SOUTH, numberField);
+		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, nameField);
+		appLayout.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.SOUTH, nameField);
+		appLayout.putConstraint(SpringLayout.NORTH, evolveLabel, 0, SpringLayout.NORTH, evolveField);
+		appLayout.putConstraint(SpringLayout.SOUTH, evolveLabel, 0, SpringLayout.SOUTH, evolveField);
+		appLayout.putConstraint(SpringLayout.NORTH, attackLabel, 0, SpringLayout.NORTH, attackField);
+		appLayout.putConstraint(SpringLayout.SOUTH, attackLabel, 0, SpringLayout.SOUTH, attackField);
+		appLayout.putConstraint(SpringLayout.NORTH, healthLabel, 0, SpringLayout.NORTH, healthField);
+		appLayout.putConstraint(SpringLayout.SOUTH, healthLabel, 0, SpringLayout.SOUTH, healthField);
+		appLayout.putConstraint(SpringLayout.EAST, healthLabel, -10, SpringLayout.WEST, healthField);
+		appLayout.putConstraint(SpringLayout.EAST, nameLabel, -10, SpringLayout.WEST, nameField);
+		appLayout.putConstraint(SpringLayout.EAST, evolveLabel, -10, SpringLayout.WEST, evolveField);
+		
+		appLayout.putConstraint(SpringLayout.EAST, pokedexDropdown, -214, SpringLayout.WEST, healthLabel);
+
 	}
 	
 	private void setupPanel()
@@ -140,11 +147,42 @@ public class PokedexPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		changeButton.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent click)
+			{
+				sendDataToController();
+			}
+		});
 		
+		pokedexDropdown.addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent click)
+			{
+				String name = pokedexDropdown.getSelectedItem().toString();
+				changeImageDisplay(name);
+			}
+				});
 		
 	}
 	
-	private void sendDataToController(String name)
+	private void sendDataToController()
+	{
+		int index = pokedexDropdown.getSelectedIndex();
+		
+		if(appController.isInt(attackField.getText()) && appController.isDouble(enhancementField.getText()) && appController.isInt(healthField.getText()))
+		{
+			String [] data = new String[5];
+			data[0] = attackField.getText();
+			data[1] = enhancementField.getText();
+			data[2] = healthField.getText();
+			data[3] = nameField.getText();
+			data[4] = evolveField.getText();
+			
+			appController.updatePokemon(index, data);
+		}
+	}
+	private void changeImageDisplay(String name)
 	{
 		String path = "/pokemon/view/images/";
 		String defaultName = "pokeball";
