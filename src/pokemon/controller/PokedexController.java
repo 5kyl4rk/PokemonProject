@@ -9,14 +9,24 @@ public class PokedexController
 {
 	private PokedexFrame appFrame;
 	private ArrayList<Pokemon> pokemonList;
-	private Mew mew;
+	private Mew pinkCat;
+	private Ditto blobyBoi;
+	private Darkrai nightmareFuel;
+	private Mimikyu bootlegPikachu;
+	private Jirachi shootingStar;
 
 	public PokedexController()
 	{
 		pokemonList = new ArrayList<Pokemon>(6);
 		
-		appFrame = new PokedexFrame(this);
+		pinkCat = new Mew();
+		blobyBoi = new Ditto();
+		nightmareFuel = new Darkrai();
+		bootlegPikachu =  new Mimikyu();
+		shootingStar = new Jirachi();
 		
+		buildList();
+		appFrame = new PokedexFrame(this);
 
 	}
 
@@ -46,6 +56,15 @@ public class PokedexController
 			current.setName(data[3]);
 			current.setCanEvolve(Boolean.parseBoolean(data[4]));
 		}
+	}
+	
+	private void buildList()
+	{
+		pokemonList.add(pinkCat);
+		pokemonList.add(blobyBoi);
+		pokemonList.add(nightmareFuel);
+		pokemonList.add(bootlegPikachu);
+		pokemonList.add(shootingStar);
 	}
 	public String[] buildPokedexText()
 	{

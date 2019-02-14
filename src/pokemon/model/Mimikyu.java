@@ -1,6 +1,6 @@
 package pokemon.model;
 
-import javax.swing.SpringLayout;
+
 
 public class Mimikyu extends Pokemon implements GhostType, FairyType
 {
@@ -20,7 +20,25 @@ public class Mimikyu extends Pokemon implements GhostType, FairyType
 		super(number, name);
 	}
 	
+	public void disappear()
+	{
+		
+	}
 	
+	public void haunt()
+	{
+		
+	}
+	
+	public void lookCute()
+	{
+		
+	}
+	
+	public void heal()
+	{
+		
+	}
 }
 
 
