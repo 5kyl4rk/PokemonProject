@@ -168,8 +168,21 @@ public class PokedexPanel extends JPanel
 			{
 				String name = pokedexDropdown.getSelectedItem().toString();
 				changeImageDisplay(name);
+				String[] statData =  appController.displayStats(name);
+				attackField.setText(statData[0]);
+				enhancementField.setText(statData[1]);
+				healthField.setText(statData[2]);
+				nameField.setText(statData[3]);
+				evolveField.setText(statData[4]);
 			}
 				});
+		
+//		saveButton.addActionListener(new ActionListener()){
+//			public void actionPerformed(ActionEvent click)
+//			{
+//				appController.savePokedex();
+//			}
+//		});
 		
 	}
 	

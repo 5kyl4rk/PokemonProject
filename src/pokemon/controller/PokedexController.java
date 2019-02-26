@@ -60,6 +60,24 @@ public class PokedexController
 		}
 	}
 	
+	public String[] displayStats(String name)
+	{
+		String[] stats = new String[5];
+		for(Pokemon selection : pokemonList)
+		{
+			if(selection.getName().toLowerCase().equals(name))
+			{
+				stats[0] = Integer.toString(selection.getAttackPoints());
+				stats[1] = Double.toString(selection.getEnhancementModifier());
+				stats[2] = Integer.toString(selection.getHealthPoints());
+				stats[3] = selection.getName();
+				stats[4] = Boolean.toString(selection.isCanEvolve());
+			}
+		}
+		
+		return stats;
+	}
+	
 	private void buildList()
 	{
 		pokemonList.add(pinkCat);
