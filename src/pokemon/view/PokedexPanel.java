@@ -13,6 +13,8 @@ public class PokedexPanel extends JPanel
 	private SpringLayout appLayout;
 	
 	private JButton changeButton;
+	private JButton saveButton;
+	
 	private JComboBox pokedexDropdown;
 	
 	private JTextField numberField;
@@ -40,6 +42,7 @@ public class PokedexPanel extends JPanel
 		this.appLayout = new SpringLayout();
 		
 		this.changeButton = new JButton("click here to change pokevalues");
+		this.saveButton = new JButton("Save information");
 		this.pokedexDropdown = new JComboBox();
 		appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, 285, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 24, SpringLayout.WEST, this);
@@ -94,6 +97,8 @@ public class PokedexPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, -6, SpringLayout.NORTH, pokedexDropdown);
 		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 24, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, imageLabel, -55, SpringLayout.WEST, enhanceLabel);
+		
+		
 		setupLayout();
 		setupPanel();
 		setupDropdown();
@@ -126,6 +131,7 @@ public class PokedexPanel extends JPanel
 		this.setLayout(appLayout);
 		this.add(pokedexDropdown);
 		this.add(changeButton);
+		this.add(saveButton);
 		
 		this.add(numberField);
 		this.add(nameField);
@@ -177,12 +183,12 @@ public class PokedexPanel extends JPanel
 			}
 				});
 		
-//		saveButton.addActionListener(new ActionListener()){
-//			public void actionPerformed(ActionEvent click)
-//			{
+		saveButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent click)
+			{
 //				appController.savePokedex();
-//			}
-//		});
+			}
+		});
 		
 	}
 	

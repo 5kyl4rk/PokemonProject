@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import pokemon.model.*;
 
-public class PokedexController
+public class PokedexController 
 {
 	private PokedexFrame appFrame;
 	private ArrayList<Pokemon> pokemonList;
