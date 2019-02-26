@@ -14,6 +14,7 @@ public class PokedexController
 	private Darkrai nightmareFuel;
 	private Mimikyu bootlegPikachu;
 	private Jirachi shootingStar;
+	private Dedede theKing;
 
 	public PokedexController()
 	{
@@ -24,6 +25,7 @@ public class PokedexController
 		nightmareFuel = new Darkrai();
 		bootlegPikachu =  new Mimikyu();
 		shootingStar = new Jirachi();
+		theKing = new Dedede();
 		
 		buildList();
 		appFrame = new PokedexFrame(this);
@@ -65,6 +67,7 @@ public class PokedexController
 		pokemonList.add(nightmareFuel);
 		pokemonList.add(bootlegPikachu);
 		pokemonList.add(shootingStar);
+		pokemonList.add(theKing);
 	}
 	public String[] buildPokedexText()
 	{
