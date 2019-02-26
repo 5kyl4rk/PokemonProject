@@ -1,6 +1,7 @@
 package pokemon.controller;
 
 import pokemon.view.PokedexFrame;
+import java.io.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import pokemon.model.*;
@@ -15,6 +16,7 @@ public class PokedexController
 	private Mimikyu bootlegPikachu;
 	private Jirachi shootingStar;
 	private Dedede theKing;
+	private String saveFile;
 
 	public PokedexController()
 	{
@@ -26,6 +28,7 @@ public class PokedexController
 		bootlegPikachu =  new Mimikyu();
 		shootingStar = new Jirachi();
 		theKing = new Dedede();
+		saveFile = "save.pkmn";
 		
 		buildList();
 		appFrame = new PokedexFrame(this);
@@ -78,6 +81,43 @@ public class PokedexController
 		return stats;
 	}
 	
+	public void savePokedex()
+	{
+		try
+		{
+			FileOutputStream saveStream = new FileOutputStream(saveFile);
+			ObjectOutputStream output = new ObjectOutputStream(saveStream);
+			output.writeObject(pokemonList);
+			output.close();
+			saveStream.close();
+		}
+		catch (IOException error)
+		{
+			JOptionPane.showMessageDialog(appFrame, error.getMessage(),"File Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	private void loadPokedex()
+	{
+		try
+		{
+			ArrayList<Pokemon> saved = new ArrayList<Pokemon>();
+			FileInputStream inputStream = new FileInputStream(saveFile);
+			ObjectInputStream input = new ObjectInputStream(inputStream);
+			saved = (ArrayList<Pokemon>) input.readObject();
+			input.close();
+			inputStream.close();
+			pokemonList = saved;
+		}
+		catch(IOException error)
+		{
+			JOptionPane.showMessageDialog(appFrame, "No Save file", "Loading Pokemon", JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		catch (ClassNotFoundException pokemonError)
+		{
+			JOptionPane.showMessageDialog(appFrame, pokemonError.getMessage(), "Type Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 	private void buildList()
 	{
 		pokemonList.add(pinkCat);
